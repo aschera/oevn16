@@ -7,8 +7,8 @@ class Form extends Component {
   render() {
     return (
       <div className="Form">
-        <input id="name"  placeholder="enter name" > </input>
-        <input id="email"  placeholder="enter email" > </input>
+        <input id="name"  placeholder="enter name" />
+        <input id="email"  placeholder="enter email" />
       </div>
     );
   }

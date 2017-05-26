@@ -42,20 +42,38 @@ test('shallow render', () => {   // Shallow test - render works?
     
 /* form component - Name input field*/
 test('renders inputfield name', () => {
-	// <input id="name"  placeholder="enter name" > </input>
+	// <input id="name"  placeholder="enter name" /> 
 
 	let wrapper = shallow(<Form/>);
-	let actual = wrapper.contains(<input id="name"  placeholder="enter name" > </input>);
+	let actual = wrapper.contains(<input id="name"  placeholder="enter name" />);
 	let expected = true;
 	expect(actual).toBe(expected);
 })
 
 /* form component - Email input field*/
 test('renders inputfield email', () => {
-    // <input id="email"  placeholder="enter email" > </input>
+    // <input id="email"  placeholder="enter email" />
     
 	let wrapper = shallow(<Form/>);
-	let actual = wrapper.contains(<input id="email"  placeholder="enter email" > </input>);
+	let actual = wrapper.contains(<input id="email"  placeholder="enter email" />);
+	let expected = true;
+	expect(actual).toBe(expected);
+})
+
+/* Setting state of new Name in App*/
+test('renders inputfield email', () => {
+
+	let wrapper = shallow(<App/>);
+	let actual = wrapper.state(name);
+	let expected = true;
+	expect(actual).toBe(expected);
+})
+
+/* Setting state of new Email in App*/
+test('renders inputfield email', () => {
+
+	let wrapper = shallow(<App/>);
+	let actual = wrapper.state(email);
 	let expected = true;
 	expect(actual).toBe(expected);
 })
