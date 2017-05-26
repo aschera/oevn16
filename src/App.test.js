@@ -18,6 +18,7 @@ Det är för att jag ska kunna se att ni har använt TDD-metoden "red, green, re
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import Form from './Form';  // Added
 import { shallow } from 'enzyme'; // Added
 
 it('renders without crashing', () => {
@@ -39,4 +40,3 @@ test('shallow render', () => {   // Shallow test - render works?
 	shallow(<Form/>);
 });    
 
-})
