@@ -29,11 +29,48 @@ it('renders without crashing', () => {
 
 /* /////////////////////////////////////////////////////////////////////////////// */
 /* MY OWN STUFF */
+/* /////////////////////////////////////////////////////////////////////////////// */
+
+
+
+
+
+/* /////////////////////////////////////////////////////////////////////////////// */
+/*                          APP                                                    */
+/* /////////////////////////////////////////////////////////////////////////////// */
 
 /*App component */
 test('shallow render', () => {   // Shallow test  - render works?
 	shallow(<App/>);
 });
+
+/* Setting state of new Name in App*/
+test('App: Setting state of new Name in App', () => {
+
+	let wrapper = shallow(<App/>);
+	let actual = wrapper.state(name);
+	let expected = true;
+	expect(actual).toBe(expected);
+})
+
+/* Setting state of new Email in App*/
+test('App: Setting state of new Email in App', () => {
+
+	let wrapper = shallow(<App/>);
+	let actual = wrapper.state(email);
+	let expected = true;
+	expect(actual).toBe(expected);
+})    
+    
+    
+
+
+/* /////////////////////////////////////////////////////////////////////////////// */
+/*                          Form                                                    */
+/* /////////////////////////////////////////////////////////////////////////////// */
+
+
+
 
 /* form component */
 test('shallow render', () => {   // Shallow test - render works?
@@ -60,8 +97,9 @@ test('renders inputfield email', () => {
 	expect(actual).toBe(expected);
 })
 
-/* Setting state of new Name in App*/
-test('renders inputfield email', () => {
+
+/* Setting state of new Name in Form*/
+test('Form: Setting state of new Email', () => {
 
 	let wrapper = shallow(<App/>);
 	let actual = wrapper.state(name);
@@ -69,8 +107,8 @@ test('renders inputfield email', () => {
 	expect(actual).toBe(expected);
 })
 
-/* Setting state of new Email in App*/
-test('renders inputfield email', () => {
+/* Setting state of new Email in Form*/
+test('Form: Setting state of new Email', () => {
 
 	let wrapper = shallow(<App/>);
 	let actual = wrapper.state(email);
