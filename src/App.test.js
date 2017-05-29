@@ -48,18 +48,22 @@ test('shallow render', () => {   // Shallow test  - render works?
 test('App: Setting state of new Name in App', () => {
 
 	let wrapper = shallow(<App/>);
-	let actual = wrapper.state(name);
-	let expected = true;
-	expect(actual).toBe(expected);
+	expect(wrapper.find('.test')).to.have.length(1);
+    expect(wrapper.find('.bar')).to.have.length(0);
+    wrapper.setState({ name: 'Elvis' });
+    expect(wrapper.find('.foo')).to.have.length(0);
+    expect(wrapper.find('.Elvis')).to.have.length(1);
 })
 
 /* Setting state of new Email in App*/
 test('App: Setting state of new Email in App', () => {
 
 	let wrapper = shallow(<App/>);
-	let actual = wrapper.state(email);
-	let expected = true;
-	expect(actual).toBe(expected);
+	expect(wrapper.find('.test')).to.have.length(1);
+    expect(wrapper.find('.bar')).to.have.length(0);
+    wrapper.setState({ email: 'Elvis' });
+    expect(wrapper.find('.foo')).to.have.length(0);
+    expect(wrapper.find('.Elvis')).to.have.length(1);
 })    
     
     
@@ -79,39 +83,43 @@ test('shallow render', () => {   // Shallow test - render works?
     
 /* form component - Name input field*/
 test('renders inputfield name', () => {
-	// <input id="name"  placeholder="enter name" /> 
+	// <input id="name"  placeholder="enter name" onChange={this.changeName}/>
 
 	let wrapper = shallow(<Form/>);
-	let actual = wrapper.contains(<input id="name"  placeholder="enter name" />);
+	let actual = wrapper.contains(<input id="name"  placeholder="enter name" onChange={this.changeName}/>);
 	let expected = true;
 	expect(actual).toBe(expected);
 })
 
 /* form component - Email input field*/
 test('renders inputfield email', () => {
-    // <input id="email"  placeholder="enter email" />
+    // <input id="email"  placeholder="enter email" onChange={this.changeEmail}/>
     
 	let wrapper = shallow(<Form/>);
-	let actual = wrapper.contains(<input id="email"  placeholder="enter email" />);
+	let actual = wrapper.contains(<input id="email"  placeholder="enter email" onChange={this.changeEmail}/>);
 	let expected = true;
 	expect(actual).toBe(expected);
 })
 
 
 /* Setting state of new Name in Form*/
-test('Form: Setting state of new Email', () => {
+test('Form: Setting state of new Email in Form', () => {
 
-	let wrapper = shallow(<App/>);
-	let actual = wrapper.state(name);
-	let expected = true;
-	expect(actual).toBe(expected);
+	let wrapper = shallow(<Form/>);
+	expect(wrapper.find('.test')).to.have.length(1);
+    expect(wrapper.find('.bar')).to.have.length(0);
+    wrapper.setState({ name: 'Elvis' });
+    expect(wrapper.find('.foo')).to.have.length(0);
+    expect(wrapper.find('.Elvis')).to.have.length(1);
 })
 
 /* Setting state of new Email in Form*/
-test('Form: Setting state of new Email', () => {
+test('Form: Setting state of new Email Form', () => {
 
-	let wrapper = shallow(<App/>);
-	let actual = wrapper.state(email);
-	let expected = true;
-	expect(actual).toBe(expected);
+	const wrapper = shallow(<Form />);
+	expect(wrapper.find('.test')).to.have.length(1);
+    expect(wrapper.find('.bar')).to.have.length(0);
+    wrapper.setState({ email: 'Elvis' });
+    expect(wrapper.find('.foo')).to.have.length(0);
+    expect(wrapper.find('.Elvis')).to.have.length(1);
 })
