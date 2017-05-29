@@ -41,31 +41,22 @@ it('renders without crashing', () => {
 /* /////////////////////////////////////////////////////////////////////////////// */
 
 /*App component */
-test('shallow render', () => {   // Shallow test  - render works?
+test('shallow render App', () => {   // Shallow test  - render works?
 	shallow(<App/>);
 });
-
-
 
 /* /////////////////////////////////////////////////////////////////////////////// */
 /*                          Form                                                    */
 /* /////////////////////////////////////////////////////////////////////////////// */
 
-
-
-
 /* form component */
-test('shallow render', () => {   // Shallow test - render works?
+test('shallow render Form', () => {   // Shallow test - render works?
 	shallow(<Form/>);
 });  
-    
-
-    
+      
 /*   ///////////////////////////// testar att formuläret innehåller input-element ////////////////////////////////// */
     
-/* form component - Name input field*/
-    
-   
+/* form component - Name input field*/ 
 test('renders inputfield name', () => {
     
       let wrapper = mount(<Form />);
@@ -73,13 +64,27 @@ test('renders inputfield name', () => {
     });
 
 /* form component - Email input field*/
-
-test('renders inputfield name', () => {
+test('renders inputfield email', () => {
     
       let wrapper = mount(<Form />);
       wrapper.find({ className: 'email'})  
     });
 
-
+/* /////////////////////////////////////////////////////////////////////////////// */
+/*                          Button                                                    */
+/* /////////////////////////////////////////////////////////////////////////////// */
+    
+/* button component */
+test('shallow render Button', () => {   // Shallow test - render works?
+	shallow(<Button />);
+});   
+    
 /*   /////////////////////////////  testar att formuläret innehåller ett element med CSS-klassen "buttonClass" ////////////////////////////////// */
 
+test('renders button to delete state', () => {
+  let wrapper = shallow(<Button />);
+	let actual = wrapper.find("button").hasClass("button");
+	let expected = true;
+	expect(actual).toBe(expected);
+
+});
