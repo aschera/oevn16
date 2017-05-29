@@ -20,6 +20,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import Form from './Form';  // Added
 import { shallow } from 'enzyme'; // Added
+import { mount } from 'enzyme'; // Added
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
@@ -44,31 +45,6 @@ test('shallow render', () => {   // Shallow test  - render works?
 	shallow(<App/>);
 });
 
-    
-/* Setting state of new Name in App*/
-/*test('App: Setting state of new Name in App', () => {
-
-	let wrapper = shallow(<App/>);
-	expect(wrapper.find('.test')).to.have.length(1);
-    expect(wrapper.find('.bar')).to.have.length(0);
-    wrapper.setState({ name: 'Elvis' });
-    expect(wrapper.find('.foo')).to.have.length(0);
-    expect(wrapper.find('.Elvis')).to.have.length(1);
-})
-*/
-/* Setting state of new Email in App*/
-
-/*test('App: Setting state of new Email in App', () => {
-
-	let wrapper = shallow(<App/>);
-	expect(wrapper.find('.test')).to.have.length(1);
-    expect(wrapper.find('.bar')).to.have.length(0);
-    wrapper.setState({ email: 'Elvis' });
-    expect(wrapper.find('.foo')).to.have.length(0);
-    expect(wrapper.find('.Elvis')).to.have.length(1);
-})  */  
-    
-    
 
 
 /* /////////////////////////////////////////////////////////////////////////////// */
@@ -89,24 +65,20 @@ test('shallow render', () => {   // Shallow test - render works?
     
 /* form component - Name input field*/
     
-var nameX, emailX;    
-test('renders inputfield email', () => {
-    // <input className="email" placeholder="enter email" onChange={this.changeEmail}/>
-    let wrapper = shallow(<Form/>);
-    let actual = wrapper.contains(<input className="email" placeholder="enter email" onChange={this.changeEmail}/>);
-	let expected = true;
-    expect(actual).toBe(expected);
-})
+   
+test('renders inputfield name', () => {
+    
+      let wrapper = mount(<Form />);
+      wrapper.find({ className: 'name'})  
+    });
 
 /* form component - Email input field*/
 
-test('renders inputfield email', () => {
-    // <input className="email"  placeholder="enter email" onChange={emailX}/>
-    let wrapper = shallow(<Form/>);
-    let actual = wrapper.contains(<input className="email"  placeholder="enter email" onChange={emailX}/>);
-	let expected = true;
-    expect(actual).toBe(expected);
-})
+test('renders inputfield name', () => {
+    
+      let wrapper = mount(<Form />);
+      wrapper.find({ className: 'email'})  
+    });
 
 
 /*   /////////////////////////////  testar att formuläret innehåller ett element med CSS-klassen "buttonClass" ////////////////////////////////// */

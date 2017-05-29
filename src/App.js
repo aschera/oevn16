@@ -47,15 +47,19 @@ changeEmail(x) {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
         </div>
+        
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+        
         <Form
         changeName={this.changeName}
         changeEmail={this.changeName}
        
         name={this.state.name}
         email={this.state.email} />
+        
+        
       </div>
     );
   }
