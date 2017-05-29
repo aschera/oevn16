@@ -19,6 +19,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import Form from './Form';  // Added
+import Button from './Button';  // Added
 import { shallow } from 'enzyme'; // Added
 import { mount } from 'enzyme'; // Added
 
