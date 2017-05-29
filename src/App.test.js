@@ -44,8 +44,9 @@ test('shallow render', () => {   // Shallow test  - render works?
 	shallow(<App/>);
 });
 
+    
 /* Setting state of new Name in App*/
-test('App: Setting state of new Name in App', () => {
+/*test('App: Setting state of new Name in App', () => {
 
 	let wrapper = shallow(<App/>);
 	expect(wrapper.find('.test')).to.have.length(1);
@@ -54,9 +55,10 @@ test('App: Setting state of new Name in App', () => {
     expect(wrapper.find('.foo')).to.have.length(0);
     expect(wrapper.find('.Elvis')).to.have.length(1);
 })
-
+*/
 /* Setting state of new Email in App*/
-test('App: Setting state of new Email in App', () => {
+
+/*test('App: Setting state of new Email in App', () => {
 
 	let wrapper = shallow(<App/>);
 	expect(wrapper.find('.test')).to.have.length(1);
@@ -64,7 +66,7 @@ test('App: Setting state of new Email in App', () => {
     wrapper.setState({ email: 'Elvis' });
     expect(wrapper.find('.foo')).to.have.length(0);
     expect(wrapper.find('.Elvis')).to.have.length(1);
-})    
+})  */  
     
     
 
@@ -81,45 +83,31 @@ test('shallow render', () => {   // Shallow test - render works?
 	shallow(<Form/>);
 });  
     
-/* form component - Name input field*/
-test('renders inputfield name', () => {
-	// <input id="name"  placeholder="enter name" onChange={this.changeName}/>
 
-	let wrapper = shallow(<Form/>);
-	let actual = wrapper.contains(<input id="name"  placeholder="enter name" onChange={this.changeName}/>);
+    
+/*   ///////////////////////////// testar att formuläret innehåller input-element ////////////////////////////////// */
+    
+/* form component - Name input field*/
+    
+var nameX, emailX;    
+test('renders inputfield email', () => {
+    // <input className="email" placeholder="enter email" onChange={this.changeEmail}/>
+    let wrapper = shallow(<Form/>);
+    let actual = wrapper.contains(<input className="email" placeholder="enter email" onChange={this.changeEmail}/>);
 	let expected = true;
-	expect(actual).toBe(expected);
+    expect(actual).toBe(expected);
 })
 
 /* form component - Email input field*/
+
 test('renders inputfield email', () => {
-    // <input id="email"  placeholder="enter email" onChange={this.changeEmail}/>
-    
-	let wrapper = shallow(<Form/>);
-	let actual = wrapper.contains(<input id="email"  placeholder="enter email" onChange={this.changeEmail}/>);
+    // <input className="email"  placeholder="enter email" onChange={emailX}/>
+    let wrapper = shallow(<Form/>);
+    let actual = wrapper.contains(<input className="email"  placeholder="enter email" onChange={emailX}/>);
 	let expected = true;
-	expect(actual).toBe(expected);
+    expect(actual).toBe(expected);
 })
 
 
-/* Setting state of new Name in Form*/
-test('Form: Setting state of new Email in Form', () => {
+/*   /////////////////////////////  testar att formuläret innehåller ett element med CSS-klassen "buttonClass" ////////////////////////////////// */
 
-	let wrapper = shallow(<Form/>);
-	expect(wrapper.find('.test')).to.have.length(1);
-    expect(wrapper.find('.bar')).to.have.length(0);
-    wrapper.setState({ name: 'Elvis' });
-    expect(wrapper.find('.foo')).to.have.length(0);
-    expect(wrapper.find('.Elvis')).to.have.length(1);
-})
-
-/* Setting state of new Email in Form*/
-test('Form: Setting state of new Email Form', () => {
-
-	const wrapper = shallow(<Form />);
-	expect(wrapper.find('.test')).to.have.length(1);
-    expect(wrapper.find('.bar')).to.have.length(0);
-    wrapper.setState({ email: 'Elvis' });
-    expect(wrapper.find('.foo')).to.have.length(0);
-    expect(wrapper.find('.Elvis')).to.have.length(1);
-})

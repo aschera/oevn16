@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import './Form.css' ;
 
 
@@ -15,9 +14,6 @@ class Form extends Component {
             this.changeName = this.changeName.bind(this);
 		}
             
-    
-
-
 /* ------------------------------------------------------------- */        
 changeName(x) {
     let z = x.target.value;
@@ -43,14 +39,14 @@ changeEmail(x) {
         
 /* ------------------------------------------------------------- */   
     
+ 
     
-    
-  render() {
+  render() {var nameX= this.changeName; var emailX= this.changeEmail;    
     return (
       <div className="Form">
-        <input id="name"  placeholder="enter name" onChange={this.changeName}/>
+        <input className="name" placeholder="enter name" onChange={nameX}/>
      <div className={this.state.name}/>
-        <input id="email"  placeholder="enter email" onChange={this.changeEmail}/>
+        <input className="email"  placeholder="enter email" onChange={emailX}/>
      <div className={this.state.email}/>
       </div>
     );
