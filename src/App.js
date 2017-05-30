@@ -60,6 +60,7 @@ changeEmail(x) {
         name={this.state.name}
         email={this.state.email} />
         
+        <Button />
         
       </div>
     );
