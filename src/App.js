@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Form from './Form';  // Added
 import Button from './Button';  // Added
@@ -14,6 +13,7 @@ class App extends Component {
             
             this.changeEmail = this.changeEmail.bind(this);
             this.changeName = this.changeName.bind(this);
+            this.clearState = this.clearState.bind(this);
 		}
             
 /* ------------------------------------------------------------- */        
@@ -21,7 +21,7 @@ changeName(x) {
     let z = x.target.value;
     
     this.setState({
-        email: z,
+        name: z,
     });
  console.log(z);
 
@@ -39,29 +39,42 @@ changeEmail(x) {
 
 }
         
-/* ------------------------------------------------------------- */   
+/* ------------------------------------------------------------- */  
+/* ------------------------------------------------------------- */     
+clearState() {
+    
+    this.setState ({
+            name: " ",
+            email: " "
+    });
+
+}
+        
+/* ------------------------------------------------------------- */
 
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
         
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <h3>Input name and email</h3>
         
+        <br />
         <Form
         changeName={this.changeName}
-        changeEmail={this.changeName}
+        changeEmail={this.changeEmail}
        
         name={this.state.name}
         email={this.state.email} />
+
+        <Button clearState={this.clearState}/>
         
-        <Button />
+        <br />
         
+        <h4>State: </h4>
+        <p>name: {this.state.name}
+        </p>
+        <p>email: {this.state.email}
+        </p>
       </div>
     );
   }

@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import './Form.css' ;
-
-
+import './App.css' ;
 class Form extends Component {
 
     
@@ -9,8 +7,9 @@ class Form extends Component {
     return (
       <form>
         
-        <input className="name" value={this.props.name} placeholder="enter name" onChange={this.props.changeName}/>
- 
+        Name:
+        <input id='name' className="name" value={this.props.name} placeholder="enter name" onChange={this.props.changeName}/>
+        Email:
         <input className="email"  value={this.props.email}placeholder="enter email" onChange={this.props.changeEmail}/>
     
       </form>
