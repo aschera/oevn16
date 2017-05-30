@@ -70,6 +70,22 @@ test('renders inputfield email', () => {
       let wrapper = mount(<Form />);
       wrapper.find({ className: 'email'})  
     });
+    
+/* form component - Name + Email input fields change state? */   
+test('check that state updates onChange', () => { 
+    const wrapper = mount(<Form/>);
+                          
+    wrapper.setState({name: 'Elvis', email: 'nothingYet'});
+    expect(wrapper.state('name')).toBe('Elvis');
+    expect(wrapper.state('email')).toBe('nothingYet');
+    
+    wrapper.find('.name').simulate('change', {target: {value: 'Elvis'}});
+    wrapper.find('.email').simulate('change', {target: {value: 'nothingYet'}});
+    
+    expect(wrapper.state('name')).toBe('Elvis');
+    expect(wrapper.state('email')).toBe('nothingYet');
+  })
+
 
 /* /////////////////////////////////////////////////////////////////////////////// */
 /*                          Button                                                    */
@@ -89,3 +105,5 @@ test('renders button to delete state', () => {
 	expect(actual).toBe(expected);
 
 });
+    
+    
