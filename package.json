@@ -2,7 +2,7 @@
   "name": "oevn16",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/aschera/oevn16",
+  "homepage": "https://github.com/aschera/oevn16/build/index.html",
   "dependencies": {
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
