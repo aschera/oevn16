@@ -98,6 +98,7 @@ test('shallow render Button', () => {   // Shallow test - render works?
     
 /*   /////////////////////////////  testar att formuläret innehåller ett element med CSS-klassen "buttonClass" ////////////////////////////////// */
 
+    /* button component - is there one with the button class ?? */   
 test('renders button to delete state', () => {
   let wrapper = shallow(<Button />);
 	let actual = wrapper.find("button").hasClass("button");
@@ -107,3 +108,13 @@ test('renders button to delete state', () => {
 });
     
     
+   /* does the click button work? */    
+ it("button click simulation",()=>{
+        let wrapper = mount(<App />);
+        wrapper.setState({email:"email", name:"name"});
+        wrapper.find("button").simulate("click");
+        const stateName = wrapper.state("name");
+        const stateEmail = wrapper.state("email");
+        expect(stateName).toBe(" ");
+        expect(stateEmail).toBe(" ");
+    });   
